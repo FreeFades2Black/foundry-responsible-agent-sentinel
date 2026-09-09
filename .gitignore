@@ -32,6 +32,7 @@ htmlcov/
 
 # Azure & Environments
 .azure/
+.terraform/
 .env
 .env.*
 !.env.example
