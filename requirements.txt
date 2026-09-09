@@ -1,0 +1,15 @@
+# Core Azure AI Foundry & Identity SDKs
+azure-ai-projects>=1.0.0b1
+azure-identity>=1.15.0
+azure-search-documents>=11.4.0
+azure-ai-evaluation>=1.0.0b1
+
+# Validation, Guardrails & Tool Schemas
+pydantic>=2.6.0
+requests>=2.31.0
+regex>=2023.12.25
+
+# Testing & Quality Gates
+pytest>=8.0.0
+pytest-cov>=4.1.0
+pytest-mock>=3.12.0

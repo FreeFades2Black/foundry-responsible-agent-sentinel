@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+
+name: foundry-responsible-agent-sentinel
+metadata:
+  template: foundry-responsible-agent-sentinel@1.0.0
+services:
+  sentinel-agent:
+    project: ./src
+    language: python
+    host: containerapp
+infra:
+  provider: bicep
+  path: infra/main.bicep
+pipeline:
+  provider: github
+hooks:
+  postprovision:
+    posix:
+      shell: sh
+      run: python src/knowledge/ingest.py
+    windows:
+      shell: pwsh
+      run: python src/knowledge/ingest.py

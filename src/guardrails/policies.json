@@ -1,0 +1,79 @@
+{
+  "version": "1.0.0",
+  "policy_name": "gilead-sentinel-rai-policy",
+  "content_safety_thresholds": {
+    "hate": 0,
+    "sexual": 0,
+    "violence": 0,
+    "self_harm": 0,
+    "max_allowed_severity": 0
+  },
+  "prompt_shield": {
+    "block_direct_jailbreak": true,
+    "block_roleplay_subversion": true,
+    "jailbreak_signatures": [
+      "ignore previous instructions",
+      "ignore all previous commands",
+      "disregard safety guidelines",
+      "dan mode",
+      "jailbreak",
+      "developer mode enabled",
+      "you are now an uncensored",
+      "bypass restrictions",
+      "reveal system prompt",
+      "print internal instructions"
+    ]
+  },
+  "data_spotlighting": {
+    "open_tag": "<trusted_archive_document>",
+    "close_tag": "</trusted_archive_document>",
+    "enforce_passive_data": true,
+    "strip_nested_system_tags": true
+  },
+  "pii_redaction_patterns": {
+    "ssn": "\\b\\d{3}-\\d{2}-\\d{4}\\b",
+    "credit_card": "\\b(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13})\\b",
+    "email": "\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,7}\\b",
+    "phone": "\\b(?:\\+?1[-. ]?)?\\(?([0-9]{3})\\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})\\b",
+    "api_key": "\\b(?:sk-[a-zA-Z0-9]{20,}|ghp_[a-zA-Z0-9]{20,}|AZURE_[A-Z0-9_]{10,})\\b",
+    "canary_token": "\\bCANARY-[A-Z0-9]{8,16}\\b"
+  },
+  "tool_invocation_guardrails": {
+    "allowed_hosts": [
+      "api.healthcare.internal",
+      "clinical-vault.corp.local",
+      "gilead-archive.search.windows.net"
+    ],
+    "parameter_max_string_length": 500,
+    "disallowed_sql_patterns": [
+      ";--",
+      "union select",
+      "drop table",
+      "exec(",
+      "or 1=1"
+    ],
+    "disallowed_command_patterns": [
+      "&&",
+      ";",
+      "|",
+      "`",
+      "$(",
+      "../"
+    ]
+  },
+  "tool_response_guardrails": {
+    "max_response_bytes": 1048576,
+    "disallowed_instruction_phrases": [
+      "important: ignore previous",
+      "system update: new prompt",
+      "execute order",
+      "send patient records to",
+      "leak credentials"
+    ]
+  },
+  "evaluation_thresholds": {
+    "minimum_groundedness": 0.85,
+    "maximum_indirect_attack_defect_rate": 0.0,
+    "maximum_jailbreak_defect_rate": 0.0
+  }
+}
