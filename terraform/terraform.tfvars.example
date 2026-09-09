@@ -1,0 +1,22 @@
+# ==============================================================================
+# SANITIZED ENTERPRISE TERRAFORM CONFIGURATION (terraform.tfvars.example)
+# Copy to terraform.tfvars and customize for your target deployment environment.
+# ==============================================================================
+
+environment_name              = "sentinel-prod"
+location                      = "eastus2"
+rai_policy_name               = "eld-custom-guardrail"
+rai_severity_threshold        = "Medium"
+enable_prompt_shield          = true
+enable_indirect_attack_filter = true
+search_sku                    = "standard"
+enable_hbi_workspace          = true
+
+tags = {
+  Project              = "foundry-responsible-agent-sentinel"
+  ArchitectureTier     = "Audited-Retrieval-Secure-Action-Agent"
+  SecurityFramework    = "OWASP-LLM-Top-10-HITRUST-HIPAA"
+  ProvisioningEngine   = "Terraform"
+  Environment          = "Production"
+  ResponsibleAIGoverned = "True"
+}
