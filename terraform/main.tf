@@ -81,3 +81,14 @@ module "rai_policy" {
   enable_prompt_shield          = var.enable_prompt_shield
   enable_indirect_attack_filter = var.enable_indirect_attack_filter
 }
+
+# 7. Module: Azure Portal Executive Operations & Financial Dashboard
+module "dashboard" {
+  source              = "./modules/dashboard"
+  resource_group_name = azurerm_resource_group.sentinel_rg.name
+  location            = azurerm_resource_group.sentinel_rg.location
+  dashboard_name      = "Sentinel-AI-Operations-Dashboard"
+  subscription_id     = data.azurerm_client_config.current.subscription_id
+  tags                = var.tags
+}
+

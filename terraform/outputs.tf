@@ -63,3 +63,9 @@ output "vnet_id" {
   description = "Resource ID of the Sentinel Virtual Network."
   value       = module.networking.vnet_id
 }
+
+output "azure_portal_dashboard_id" {
+  description = "Resource ID of the provisioned Azure Portal Dashboard for operational monitoring."
+  value       = module.dashboard.dashboard_id
+}
+
