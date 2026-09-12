@@ -1,0 +1,38 @@
+{
+  "title": "Responsible AI Sentinel Observability",
+  "schemaVersion": 38,
+  "panels": [
+    {
+      "title": "Adversarial Injections Blocked / hr",
+      "type": "stat",
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "targets": [
+        {
+          "expr": "sum(rate(rai_injections_blocked_total[1h]))",
+          "legendFormat": "Blocked Attacks"
+        }
+      ]
+    },
+    {
+      "title": "Clinical Groundedness Score (Average)",
+      "type": "gauge",
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "targets": [
+        {
+          "expr": "avg(rai_groundedness_score)",
+          "legendFormat": "Groundedness"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+groups:
+  - name: responsible_ai_alerts
+    rules:
+      - alert: GroundednessScoreBelowFloor
+        expr: avg(rai_groundedness_score) < 0.85
+        for: 2m
+        labels:
+          severity: critical
+          tier: ai-safety
+        annotations:
+          summary: "Clinical AI Groundedness dropped below 0.85"
+          description: "Model hallucinations detected in clinical completion stream."
