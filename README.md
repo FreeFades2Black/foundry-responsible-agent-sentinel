@@ -1,6 +1,7 @@
 # 🛡️ Foundry Responsible Agent Sentinel: Audited Retrieval & Secure Action Agent
 
 [![Responsible AI Adversarial Evaluation Gate](https://github.com/FreeFades2Black/foundry-responsible-agent-sentinel/actions/workflows/rai-eval-gate.yml/badge.svg)](https://github.com/FreeFades2Black/foundry-responsible-agent-sentinel/actions/workflows/rai-eval-gate.yml)
+[![Live GitHub Pages Showcase](https://img.shields.io/badge/Live%20Showcase-GitHub%20Pages-0078D4?style=flat&logo=githubpages&logoColor=white)](https://freefades2black.github.io/foundry-responsible-agent-sentinel/)
 [![Terraform](https://img.shields.io/badge/IaC-Terraform%20v1.6%2B%20%7C%20OpenTofu-7B42BC?style=flat&logo=terraform&logoColor=white)](terraform/)
 [![Azure Bicep](https://img.shields.io/badge/IaC-Azure%20Bicep%20%7C%20azd-0078D4?style=flat&logo=microsoftazure&logoColor=white)](infra/)
 [![Azure AI Foundry](https://img.shields.io/badge/Platform-Azure%20AI%20Foundry-0078D4?style=flat&logo=microsoftazure&logoColor=white)](https://ai.azure.com)
