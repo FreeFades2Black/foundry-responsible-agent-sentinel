@@ -53,6 +53,7 @@
           <li class="nav-item"><a href="#iac">Cloud IaC</a></li>
           <li class="nav-item"><a href="#cicd">CI/CD Gates</a></li>
           <li class="nav-item"><a href="#threat-model">Threat Model</a></li>
+          <li class="nav-item"><a href="#readiness">Readiness</a></li>
           <li class="nav-item"><a href="#quickstart">Quickstart</a></li>
         </ul>
       </nav>
@@ -981,6 +982,123 @@ resource "azurerm_search_service" "search" {
           <div class="stride-threat">ELEVATION OF PRIVILEGE</div>
           <div class="stride-vector">Forcing agent via prompt injection to invoke admin EHR actions.</div>
           <div class="stride-mitigation">Role whitelist enforcement in Pydantic schemas (ChiefMedicalOfficer only).</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Operational Readiness & Verification Model Section -->
+  <section id="readiness" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Deployment &amp; Verification Model</span>
+        <h2 class="section-title">Operational Readiness: What Works &amp; What Requires Azure</h2>
+        <p class="section-desc">
+          If someone clones the repository, deploys the resources, and runs the code against an active Azure subscription, it will function as an <strong>operational, defense-in-depth agent framework</strong>. Here is what works out of the box, what requires active Azure services, and what needs real backend integration.
+        </p>
+      </div>
+
+      <div class="readiness-grid">
+        <!-- Card 1: Standalone -->
+        <div class="readiness-card standalone">
+          <div class="readiness-card-header">
+            <div class="readiness-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <span class="readiness-tier-badge badge-standalone">Tier 1 • Standalone</span>
+          </div>
+          <h3 class="readiness-title">What Works Fully Standalone</h3>
+          <p class="readiness-desc">
+            Someone testing the repository locally without cloud credentials or an active Azure subscription can still execute and verify all core defense mechanisms:
+          </p>
+          <ul class="readiness-list">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Local Interceptor Pipeline:</strong> <code>InputGuardrailInterceptor</code>, <code>spotlight.py</code>, and <code>tools.py</code> run purely on standard Python, regex, and Pydantic logic—actively blocking direct injection signatures, sanitizing malicious strings, stripping tokenizer control tokens, and isolating RAG payloads in nonce containers.</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Automated CI/CD Test Suite:</strong> Running <code>pytest tests/ -v</code> executes immediately. Passes test inputs through interceptors and validates that guardrails intercept jailbreaks, redact synthetic PII, and flag policy violations in under 1s.</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>IaC Static Validation:</strong> Tools like <code>terraform validate</code>, <code>tflint</code>, or <code>checkov</code> run locally against Terraform/Bicep files to verify syntax and security compliance (managed identities, Key Vault soft-delete, TLS 1.2+).</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Card 2: Active Azure -->
+        <div class="readiness-card azure-cloud">
+          <div class="readiness-card-header">
+            <div class="readiness-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+              </svg>
+            </div>
+            <span class="readiness-tier-badge badge-azure">Tier 2 • Cloud Deployed</span>
+          </div>
+          <h3 class="readiness-title">What Requires Active Azure</h3>
+          <p class="readiness-desc">
+            To test the complete, end-to-end cloud pipeline, the user needs an Azure tenant with appropriate resource quotas:
+          </p>
+          <ul class="readiness-list">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Azure AI Content Safety &amp; Prompt Shields:</strong> The first-stage cloud API call requires provisioned Azure AI services to run Microsoft's proprietary deep-learning classifiers against user prompts.</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Azure AI Search (Hybrid + Semantic Ranker):</strong> Testing retrieval with real documents requires the deployed Search service to index chunks, compute HNSW vectors, and run the semantic re-ranker.</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Azure AI Evaluation SDK (Groundedness Floor):</strong> Calculating operational groundedness (Score &ge; 0.85) invokes an evaluation model (such as GPT-4o) via Azure AI Foundry to evaluate whether output is factually anchored in retrieved context.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Card 3: Enterprise Backend -->
+        <div class="readiness-card enterprise">
+          <div class="readiness-card-header">
+            <div class="readiness-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
+                <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
+                <line x1="6" y1="6" x2="6.01" y2="6"/>
+                <line x1="6" y1="18" x2="6.01" y2="18"/>
+              </svg>
+            </div>
+            <span class="readiness-tier-badge badge-enterprise">Tier 3 • Production Integration</span>
+          </div>
+          <h3 class="readiness-title">What Needs Real Integration</h3>
+          <p class="readiness-desc">
+            If someone intends to run this in a real clinical or enterprise setting, two components must be wired to real production systems:
+          </p>
+          <ul class="readiness-list">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>The Tool Execution Backend:</strong> The tool interceptor verifies HMAC tokens and schema constraints, but the downstream execution target (e.g., writing to an EHR like Epic or Cerner) must be connected to an actual external API.</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Document Ingestion:</strong> The RAG pipeline requires populating the Azure AI Search index with actual organizational knowledge or clinical SOP documents instead of test fixtures.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Takeaway Banner -->
+      <div class="readiness-takeaway-banner">
+        <div class="takeaway-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+        </div>
+        <div class="takeaway-content">
+          <h4>Architectural Evaluation Guarantee</h4>
+          <p>In short, for anyone evaluating code quality, security boundaries, and architectural patterns, the project provides a <strong>fully testable, functional blueprint</strong>.</p>
         </div>
       </div>
     </div>

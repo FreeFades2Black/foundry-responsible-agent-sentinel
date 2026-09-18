@@ -24,6 +24,33 @@
 
 ---
 
+## 🔍 Operational Readiness & Verification Model: What Works & What Requires Azure
+
+If someone clones the repository, deploys the resources, and runs the code against an active Azure subscription, it will function as an **operational, defense-in-depth agent framework**.
+
+Here is what works out of the box, what requires active Azure services, and what needs real backend integration:
+
+### 1. 🟢 What Works Fully Standalone (No Azure Bill Required)
+Someone testing the repository locally without cloud credentials can still execute and verify the core defense mechanisms:
+* **Local Interceptor Pipeline:** [`InputGuardrailInterceptor`](src/guardrails/interceptors.py), [`src/knowledge/spotlight.py`](src/knowledge/spotlight.py), and [`src/agent/tools.py`](src/agent/tools.py) run purely on standard Python, regex, and Pydantic logic. They will actively block direct injection signatures, sanitize malicious strings, strip tokenizer control tokens (`<|im_start|>`, `<|im_end|>`), and isolate RAG payloads in nonce containers (`<trusted_archive_document nonce="...">`).
+* **Automated CI/CD Test Suite:** Running `pytest tests/ -v` executes immediately. It passes test inputs through the interceptors and validates that the guardrails intercept jailbreaks, redact synthetic PII, and flag policy violations.
+* **IaC Static Validation:** Tools like `terraform validate`, `tflint`, or `checkov` can run against the Terraform/Bicep files to verify syntax and security compliance (managed identities, Key Vault 90-day soft-delete, TLS 1.2+ mandatory, disabled public blob read).
+
+### 2. ☁️ What Requires an Active Azure Subscription
+To test the complete, end-to-end cloud pipeline, the user needs an Azure tenant with appropriate quotas:
+* **Azure AI Content Safety & Prompt Shields:** The first-stage cloud API call requires provisioned Azure AI services to run Microsoft's proprietary deep-learning classifiers against user prompts.
+* **Azure AI Search (Hybrid + Semantic Ranker):** Testing the retrieval phase with real documents requires the deployed Search service to index chunks, compute HNSW vectors, and run the semantic re-ranker.
+* **Azure AI Evaluation SDK (Groundedness Floor):** Calculating the operational groundedness score ($\ge 0.85$) invokes an evaluation model (such as GPT-4o) via Azure AI Foundry to evaluate whether the agent's output is factually anchored in the retrieved context.
+
+### 3. 🔌 What Needs Real Integration to Move Beyond Testing
+If someone intends to run this in a real clinical or enterprise setting, two components must be wired to real production systems:
+* **The Tool Execution Backend:** The tool interceptor verifies HMAC tokens and schema constraints, but the downstream execution target (e.g., writing to an EHR like Epic or Cerner) must be connected to an actual external API.
+* **Document Ingestion:** The RAG pipeline requires populating the Azure AI Search index with actual organizational knowledge or clinical SOP documents instead of test fixtures.
+
+> **In Short:** For anyone evaluating code quality, security boundaries, and architectural patterns, the project provides a **fully testable, functional blueprint**.
+
+---
+
 ## 📖 Executive Summary & System Overview
 
 To demonstrate an enterprise-grade mastery of **Responsible AI (RAI)** in Microsoft Azure AI Foundry, production applications must move beyond simple chat completions. 
