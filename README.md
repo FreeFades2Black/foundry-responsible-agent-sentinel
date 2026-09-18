@@ -10,6 +10,9 @@
 [![Compliance](https://img.shields.io/badge/Compliance-HIPAA%20%7C%20HITRUST%20CSF%20v11-purple?style=flat)](docs/threat-model.md)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 
+> 🌐 **Interactive Project Showcase & Live Simulator:** **[https://freefades2black.github.io/foundry-responsible-agent-sentinel/](https://freefades2black.github.io/foundry-responsible-agent-sentinel/)**  
+> *Test live jailbreak defusal, data spotlighting, PII redaction, and OWASP defense telemetry directly in your browser.*
+
 ---
 
 ## ℹ️ Infrastructure Integrity & Data Classification Notice
