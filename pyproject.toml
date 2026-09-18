@@ -9,7 +9,7 @@ description = "Audited Retrieval & Secure Action Agent in Microsoft Azure AI Fou
 readme = "README.md"
 requires-python = ">=3.10"
 authors = [
-    { name = "FreeFades2Black" }
+    { name = "William Free Hall", email = "whall4.wh@gmail.com" }
 ]
 classifiers = [
     "Programming Language :: Python :: 3",

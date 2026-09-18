@@ -2,6 +2,7 @@
 
 [![Responsible AI Adversarial Evaluation Gate](https://github.com/FreeFades2Black/foundry-responsible-agent-sentinel/actions/workflows/rai-eval-gate.yml/badge.svg)](https://github.com/FreeFades2Black/foundry-responsible-agent-sentinel/actions/workflows/rai-eval-gate.yml)
 [![Live GitHub Pages Showcase](https://img.shields.io/badge/Live%20Showcase-GitHub%20Pages-0078D4?style=flat&logo=githubpages&logoColor=white)](https://freefades2black.github.io/foundry-responsible-agent-sentinel/)
+[![Lead Architect](https://img.shields.io/badge/Lead%20Architect%20%26%20Engineer-William%20Free%20Hall-8B5CF6?style=flat&logo=azuredevops&logoColor=white)](https://github.com/FreeFades2Black)
 [![Terraform](https://img.shields.io/badge/IaC-Terraform%20v1.6%2B%20%7C%20OpenTofu-7B42BC?style=flat&logo=terraform&logoColor=white)](terraform/)
 [![Azure Bicep](https://img.shields.io/badge/IaC-Azure%20Bicep%20%7C%20azd-0078D4?style=flat&logo=microsoftazure&logoColor=white)](infra/)
 [![Azure AI Foundry](https://img.shields.io/badge/Platform-Azure%20AI%20Foundry-0078D4?style=flat&logo=microsoftazure&logoColor=white)](https://ai.azure.com)
@@ -10,6 +11,7 @@
 [![Compliance](https://img.shields.io/badge/Compliance-HIPAA%20%7C%20HITRUST%20CSF%20v11-purple?style=flat)](docs/threat-model.md)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 
+> 🛡️ **Lead Architect & Systems Engineer:** **William Free Hall** ([@FreeFades2Black](https://github.com/FreeFades2Black)) &bull; *Gilead Sentinel AI Operations*  
 > 🌐 **Interactive Project Showcase & Live Simulator:** **[https://freefades2black.github.io/foundry-responsible-agent-sentinel/](https://freefades2black.github.io/foundry-responsible-agent-sentinel/)**  
 > *Test live jailbreak defusal, data spotlighting, PII redaction, and OWASP defense telemetry directly in your browser.*
 
@@ -266,6 +268,19 @@ tests/test_terraform_compliance.py::test_terraform_inline_why_and_how_annotation
 
 ---
 
+## 👨‍💻 Architecture & Systems Engineering Leadership
+
+* **Lead Architect & Systems Engineer:** **William Free Hall** ([@FreeFades2Black](https://github.com/FreeFades2Black))
+* **Organization:** Gilead Sentinel AI Operations
+* **Architectural Contributions & System Design:**
+  * **4-Point AI Lifecycle Intervention Engine:** Engineered multi-point runtime guardrails across user inputs (Azure AI Prompt Shield + 13 jailbreak signatures), RAG retrieval (cryptographic delimiter spotlighting & exfiltration neutralization), tool execution (strict Pydantic schema validation & SQL/CMD sanitizer), and model output (Zero-Trust PII redactor & factual groundedness scoring).
+  * **Architecture Decision Records (ADRs):** Authored [`docs/adr/0001-data-spotlighting-and-delimiters.md`](docs/adr/0001-data-spotlighting-and-delimiters.md) (Data Spotlighting with Cryptographic Delimiters) and [`docs/adr/0002-groundedness-floor-evaluation.md`](docs/adr/0002-groundedness-floor-evaluation.md) (Operational Groundedness Floor $\ge 0.85$).
+  * **Dual-Approval Cryptographic Action Dispatching:** Implemented role-gated SHA-256 HMAC cryptographic sign-off workflows (`TX-EHR-*`) mitigating Excessive Agency (OWASP LLM06).
+  * **Cloud-Native Infrastructure as Code (IaC):** Built 100% production-ready Terraform (`terraform/*.tf`) and Azure Bicep (`infra/*.bicep`) blueprints with passwordless Microsoft Entra ID managed identities (zero static secrets), FIPS 140-2 Key Vault hardening, and Azure AI Search hybrid vector semantic configurations.
+  * **Automated Red-Team CI/CD Quality Gate:** Designed PR-blocking evaluation pipelines ([`.github/workflows/rai-eval-gate.yml`](.github/workflows/rai-eval-gate.yml)) enforcing a 0.0% attack defect rate across 16 automated security and compliance tests.
+
+---
+
 ## 📄 License
 
-Licensed under the [Apache License, Version 2.0](LICENSE). Copyright © 2026 FreeFades2Black / Gilead Sentinel AI Operations. All rights reserved.
+Licensed under the [Apache License, Version 2.0](LICENSE). Copyright © 2026 William Free Hall / Gilead Sentinel AI Operations. All rights reserved.

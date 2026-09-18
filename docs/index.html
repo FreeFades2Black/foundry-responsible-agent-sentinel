@@ -78,10 +78,17 @@
   <!-- Hero Section -->
   <section class="hero-section">
     <div class="container">
-      <div class="hero-badge-container">
+      <div class="hero-badge-container" style="flex-direction: column; align-items: center; gap: 0.85rem;">
         <div class="hero-pill-badge">
           <span class="pulse-dot"></span>
           <span>ENTERPRISE RESPONSIBLE AI • MICROSOFT AZURE AI FOUNDRY</span>
+        </div>
+        <div class="hero-architect-badge">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span>Lead Systems Architect &amp; Security Engineer: <strong>William Free Hall</strong></span>
         </div>
       </div>
 
@@ -880,6 +887,37 @@ resource "azurerm_search_service" "search" {
         <p class="section-desc">
           Documented architectural decisions accepted by lead architecture for production autonomous clinical agents.
         </p>
+      <!-- Lead Architect & Systems Engineer Spotlight Card -->
+      <div class="architect-spotlight-card">
+        <div class="architect-avatar-seal">WFH</div>
+        <div class="architect-info-col">
+          <div class="architect-meta-top">
+            <h3 class="architect-name">William Free Hall</h3>
+            <span class="architect-title-badge">Lead Architect &amp; Systems Engineer</span>
+            <span class="architect-org-badge">Gilead Sentinel AI Operations</span>
+          </div>
+          <p class="architect-bio">
+            Principal engineer and architect of <strong>Foundry Responsible Agent Sentinel</strong>. Designed and implemented the complete defense-in-depth architecture spanning 4-point autonomous agent interceptors, zero-static-secrets cloud infrastructure (Terraform &amp; Azure Bicep), custom ARM Content Safety policies, and automated adversarial CI/CD proving grounds.
+          </p>
+          <div class="architect-contributions-grid">
+            <div class="architect-contrib-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>4-Point AI Lifecycle Intervention Architecture</span>
+            </div>
+            <div class="architect-contrib-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Author of ADR-0001 (Spotlighting) &amp; ADR-0002 (Groundedness Floor)</span>
+            </div>
+            <div class="architect-contrib-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Dual-Approval Cryptographic SHA-256 HMAC Signoff</span>
+            </div>
+            <div class="architect-contrib-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>100% Real Terraform &amp; Bicep Cloud Architecture</span>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="adr-cards-grid">
@@ -1078,7 +1116,7 @@ terraform apply tfplan</code></pre>
 
       <div class="footer-bottom">
         <div>
-          Copyright &copy; 2026 <strong>William Free Hall (Free)</strong> / Gilead Sentinel AI Operations. Licensed under Apache-2.0.
+          Architected &amp; Engineered by <strong>William Free Hall</strong> &bull; Gilead Sentinel AI Operations. Licensed under Apache-2.0.
         </div>
         <div class="footer-legal">
           <a href="#architecture">Back to Top ↑</a>
