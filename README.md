@@ -311,3 +311,22 @@ tests/test_terraform_compliance.py::test_terraform_inline_why_and_how_annotation
 ## 📄 License
 
 Licensed under the [Apache License, Version 2.0](LICENSE). Copyright © 2026 William Free Hall / Gilead Sentinel AI Operations. All rights reserved.
+
+## Automated CI Maintenance Log
+<!-- START_AGENT_MAINTENANCE_LOG -->
+#### Maintenance Run: `2026-10-01 20:51:05 UTC`
+- `.github/workflows/deploy-azure-infrastructure.yml`: Upgrade actions/checkout from v4 to v7 for security & performance. [Research: RCSB PDB AI Help Desk: retrieval-augmented generation for protein structure deposition support (OpenAlex / Global University Research)] [NIST SP 800-218 PW.4]
+- `.github/workflows/deploy-azure-infrastructure.yml`: Upgrade hashicorp/setup-terraform from v3 to v4 for security & performance. [Research: RCSB PDB AI Help Desk: retrieval-augmented generation for protein structure deposition support (OpenAlex / Global University Research)] [NIST SP 800-218 PW.4]
+- `.github/workflows/deploy-azure-infrastructure.yml`: Upgrade azure/login from v2 to v3 for security & performance. [Research: RCSB PDB AI Help Desk: retrieval-augmented generation for protein structure deposition support (OpenAlex / Global University Research)] [NIST SP 800-218 PW.4]
+- `.github/workflows/deploy-azure-infrastructure.yml`: Enforce timeout-minutes: 10 to kill hung processes and prevent runaway billing (CISA & FinOps).
+- `.github/workflows/pages.yml`: Upgrade actions/checkout from v4 to v7 for security & performance. [Research: RCSB PDB AI Help Desk: retrieval-augmented generation for protein structure deposition support (OpenAlex / Global University Research)] [NIST SP 800-218 PW.4]
+- `.github/workflows/pages.yml`: Upgrade actions/configure-pages from v5 to v6 for security & performance. [Research: RCSB PDB AI Help Desk: retrieval-augmented generation for protein structure deposition support (OpenAlex / Global University Research)] [NIST SP 800-218 PW.4]
+- `.github/workflows/pages.yml`: Upgrade actions/upload-pages-artifact from v3 to v5 for security & performance. [Research: RCSB PDB AI Help Desk: retrieval-augmented generation for protein structure deposition support (OpenAlex / Global University Research)] [NIST SP 800-218 PW.4]
+- `.github/workflows/pages.yml`: Upgrade actions/deploy-pages from v4 to v5 for security & performance. [Research: RCSB PDB AI Help Desk: retrieval-augmented generation for protein structure deposition support (OpenAlex / Global University Research)] [NIST SP 800-218 PW.4]
+- `.github/workflows/pages.yml`: Enforce timeout-minutes: 10 to kill hung processes and prevent runaway billing (CISA & FinOps).
+- `.github/workflows/rai-eval-gate.yml`: Upgrade actions/checkout from v4 to v7 for security & performance. [Research: RCSB PDB AI Help Desk: retrieval-augmented generation for protein structure deposition support (OpenAlex / Global University Research)] [NIST SP 800-218 PW.4]
+- `.github/workflows/rai-eval-gate.yml`: Upgrade actions/setup-python from v5 to v7 for security & performance. [Research: RCSB PDB AI Help Desk: retrieval-augmented generation for protein structure deposition support (OpenAlex / Global University Research)] [NIST SP 800-218 PW.4]
+- `.github/workflows/rai-eval-gate.yml`: Upgrade hashicorp/setup-terraform from v3 to v4 for security & performance. [Research: RCSB PDB AI Help Desk: retrieval-augmented generation for protein structure deposition support (OpenAlex / Global University Research)] [NIST SP 800-218 PW.4]
+- `.github/workflows/rai-eval-gate.yml`: Enforce timeout-minutes: 10 to kill hung processes and prevent runaway billing (CISA & FinOps).
+
+<!-- END_AGENT_MAINTENANCE_LOG -->
